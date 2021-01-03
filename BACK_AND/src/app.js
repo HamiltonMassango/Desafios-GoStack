@@ -4,13 +4,11 @@ import router from './routes';
 import './database';
 
 class App {
-    constructor(){
-        this.server = express();
-    }
-    middlewares(){
-        
-    }
-    routes(){
-        this.server.use(router);
-    }
+  constructor() {
+    this.server = express();
+  }
+  middlewares() {}
+  routes() {
+    this.server.use(router);
+  }
 }
