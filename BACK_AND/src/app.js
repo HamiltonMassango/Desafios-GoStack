@@ -1,7 +1,7 @@
 import express from 'express';
 import router from './routes';
 
-import './database';
+// import './database';
 
 class App {
   constructor() {
@@ -17,4 +17,4 @@ class App {
   }
 }
 
-export default new App();
+export default new App().server;
