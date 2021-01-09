@@ -1,5 +1,4 @@
 import Students from '../models/Students';
-
 class studentsController {
   async store(req, res) {
     const studentExists = await Students.findOne({
