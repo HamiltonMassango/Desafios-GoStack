@@ -1,7 +1,8 @@
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
 
 class SessionController {
-  async index(req, res, next) {
+  async store(req, res, next) {
     const users = await User.findAll();
     console.log(users);
     return res.json({ users });
