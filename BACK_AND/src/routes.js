@@ -8,6 +8,7 @@ const router = new Router();
 
 router.post('/sessions', sessionControllers.store);
 router.use(auth);
+router.get('/students', studentControllers.index);
 router.post('/students', studentControllers.store);
 
 export default router;

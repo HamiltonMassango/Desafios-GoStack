@@ -1,11 +1,16 @@
 import Students from '../models/Students';
 import * as yup from 'yup';
 class studentsController {
+  async index(req, res) {
+    const students = await Students.findAll({
+      order: ['createdAt', 'DESK'],
+    });
+    res.json(students);
+  }
   async store(req, res) {
     const schema = yup.object().shape({
       email: yup.string().email().required(),
       name: yup.string().required(),
-      idade: yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {

@@ -1,0 +1,16 @@
+POST http://localhost:3333/students HTTP/1.1
+Content-Type: application/json
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0NDgwNTYzLCJleHAiOjE2MTUwODUzNjN9.Q7OUCsU0NWG8fdiJlRTft-S-rSp2k_aAMLdg1z4tv1s
+
+{
+  "name" : "Hamilton Silva",
+  "email" : "hamilton@gmail.com",
+  "idade" : 19,
+  "peso" : 62,
+  "altura" : 15
+  }
+
+###
+
+GET http://localhost:3333/students HTTP/1.1
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0NDgwNTYzLCJleHAiOjE2MTUwODUzNjN9.Q7OUCsU0NWG8fdiJlRTft-S-rSp2k_aAMLdg1z4tv1s
