@@ -15,4 +15,5 @@ router.post('/students', studentControllers.store);
 router.post('/planos', PlanoControllers.store);
 router.get('/planos', PlanoControllers.index);
 router.put('/planos/:id', PlanoControllers.update);
+router.delete('/planos/:id', PlanoControllers.delete);
 export default router;

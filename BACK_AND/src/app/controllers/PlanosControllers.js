@@ -40,6 +40,15 @@ class PlanosControllers {
     await plano.update(req.body);
     return res.json(plano);
   }
+  async delete(req, res) {
+    const plano = await Planos.findByPk(req.params.id);
+    if (!plano) {
+      return res.status(400).json('Plano is not exist ! ');
+    }
+
+    await plano.destroy();
+    return res.json(plano);
+  }
 }
 
 export default new PlanosControllers();
