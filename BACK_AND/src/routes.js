@@ -3,6 +3,7 @@ import { Router } from 'express';
 import sessionControllers from './app/controllers/SessionControllers';
 import studentControllers from './app/controllers/StudentsControllers';
 import PlanoControllers from './app/controllers/PlanosControllers';
+import MatriculaControllers from './app/controllers/MatriculasControllers';
 
 import auth from './app/middlewares/auth';
 
@@ -16,4 +17,7 @@ router.post('/planos', PlanoControllers.store);
 router.get('/planos', PlanoControllers.index);
 router.put('/planos/:id', PlanoControllers.update);
 router.delete('/planos/:id', PlanoControllers.delete);
+router.post('/matricula', MatriculaControllers.store);
+router.get('/matricula', MatriculaControllers.index);
+
 export default router;

@@ -1,11 +1,12 @@
 import Sequelize from 'sequelize';
 
 import configDatabase from '../config/databases';
-import Users from '../app/models/User';
-import Students from '../app/models/Students';
-import Planos from '../app/models/Planos';
+import User from '../app/models/User';
+import Student from '../app/models/Students';
+import Plano from '../app/models/Planos';
+import Matricula from '../app/models/Matriculas';
 
-const models = [Users, Students, Planos];
+const models = [User, Student, Plano, Matricula];
 
 class Database {
   constructor() {
@@ -13,7 +14,11 @@ class Database {
   }
   init() {
     this.connection = new Sequelize(configDatabase);
-    models.map((model) => model.init(this.connection));
+    models
+      .map((model) => model.init(this.connection))
+      .map(
+        (model) => model.associate && model.associate(this.connection.models)
+      );
   }
 }
 
