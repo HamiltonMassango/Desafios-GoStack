@@ -24,7 +24,21 @@ class PlanosControllers {
     return res.json(plano);
   }
   async update(req, res) {
-    console.log(req.params.id);
+    const plano = await Planos.findByPk(req.params.id);
+    if (!plano) {
+      return res.status(400).json('Plano is not exist ! ');
+    }
+    const schema = yup.object().shape({
+      title: yup.string(),
+      duration: yup.number(),
+      price: yup.number(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails ' });
+    }
+    await plano.update(req.body);
+    return res.json(plano);
   }
 }
 
