@@ -7,3 +7,8 @@ Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
   "duration" : 6,
   "price" : 89
 }
+
+###
+GET http://localhost:3333/planos HTTP/1.1
+Content-Type: application/json
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0NTk1MjgyLCJleHAiOjE2MTUyMDAwODJ9.xpcmd84vNoxPUEOFNPlod3LnWtHU4cDFVAusXNS0SIo

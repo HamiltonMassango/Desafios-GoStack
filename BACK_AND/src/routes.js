@@ -13,5 +13,6 @@ router.use(auth);
 router.get('/students', studentControllers.index);
 router.post('/students', studentControllers.store);
 router.post('/planos', PlanoControllers.store);
+router.get('/planos', PlanoControllers.index);
 
 export default router;
