@@ -1,11 +1,11 @@
-import { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 class Planos extends Model {
   static init(sequelize) {
     super.init(
       {
-        duration,
-        price,
+        duration: DataTypes.INTEGER,
+        price: DataTypes.INTEGER,
       },
       { sequelize }
     );
