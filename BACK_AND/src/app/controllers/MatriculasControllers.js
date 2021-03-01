@@ -2,6 +2,7 @@ import * as yup from 'yup';
 
 import Matricula from '../models/Matriculas';
 import Student from '../models/Students';
+import { startOfHour, parseISO, isBefore } from 'date-fns';
 
 class MatriculaControllers {
   async store(req, res) {
@@ -15,6 +16,13 @@ class MatriculaControllers {
       return res.status(400).json({ error: 'Validation fails ' });
     }
 
+    // Check is dates
+
+    const hourStart = startOfHour(parseISO(req.body.start_date));
+
+    if (isBefore(hourStart, new Date())) {
+      return res.status(400).json({ error: 'Past dates are not permited ' });
+    }
     const matricula = await Matricula.create(req.body);
     res.json(matricula);
   }

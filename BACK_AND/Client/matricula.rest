@@ -6,6 +6,7 @@ Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
   "start_date" : "2021-02-26T20:00:00+01:00",
   "end_date": "2021-02-26T20:00:00+01:00",
   "price": 109,
+  "student_id" : 1,
   "plan_id" : 1
 }
 
