@@ -3,7 +3,7 @@ import * as yup from 'yup';
 class studentsController {
   async index(req, res) {
     const students = await Students.findAll({
-      order: ['createdAt', 'DESK'],
+      order: ['createdAt'],
     });
     res.json(students);
   }
