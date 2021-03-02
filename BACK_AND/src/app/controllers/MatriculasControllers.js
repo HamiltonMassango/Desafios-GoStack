@@ -56,6 +56,14 @@ class MatriculaControllers {
     });
     return res.json(matriculas);
   }
+  async update(req, res) {
+    const matricula = Matricula.findByPk(req.params.id);
+    if (!matricula) {
+      return res.status().json({ error: 'Matricula is not exist ' });
+    }
+    await matricula.update(req.body);
+    res.json(matricula);
+  }
 }
 
 export default new MatriculaControllers();
