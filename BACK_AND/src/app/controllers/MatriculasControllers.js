@@ -2,10 +2,14 @@ import * as yup from 'yup';
 
 import Matricula from '../models/Matriculas';
 import Student from '../models/Students';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import Plano from '../models/Planos';
+
+import { startOfHour, parseISO, isBefore, subMonths } from 'date-fns';
 
 class MatriculaControllers {
   async store(req, res) {
+    const { start_date, student_id, plan_id } = req.body;
+
     const schema = yup.object().shape({
       start_date: yup.date().required(),
       student_id: yup.number().required(),
@@ -15,15 +19,26 @@ class MatriculaControllers {
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails ' });
     }
-
     // Check is dates
-
     const hourStart = startOfHour(parseISO(req.body.start_date));
-
-    if (isBefore(hourStart, new Date())) {
+    const plano = await Plano.findByPk(req.body.plan_id);
+    if (!plano) {
+      return res.status(400).json({ error: ' Plan is not exist ' });
+    }
+    const end_date = subMonths(hourStart, plano.duration);
+    console.log(end_date);
+    if (isBefore(end_date, new Date())) {
       return res.status(400).json({ error: 'Past dates are not permited ' });
     }
-    const matricula = await Matricula.create(req.body);
+    const price = plano.duration * plano.price;
+
+    const matricula = await Matricula.create({
+      start_date,
+      student_id,
+      plan_id,
+      price,
+      end_date,
+    });
     res.json(matricula);
   }
   async index(req, res) {
