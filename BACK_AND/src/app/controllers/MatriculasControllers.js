@@ -4,7 +4,7 @@ import Matricula from '../models/Matriculas';
 import Student from '../models/Students';
 import Plano from '../models/Planos';
 
-import { startOfHour, parseISO, isBefore, subMonths } from 'date-fns';
+import { startOfHour, parseISO, isBefore, addMonths } from 'date-fns';
 
 class MatriculaControllers {
   async store(req, res) {
@@ -25,8 +25,7 @@ class MatriculaControllers {
     if (!plano) {
       return res.status(400).json({ error: ' Plan is not exist ' });
     }
-    const end_date = subMonths(hourStart, plano.duration);
-    console.log(end_date);
+    const end_date = addMonths(hourStart, plano.duration);
     if (isBefore(end_date, new Date())) {
       return res.status(400).json({ error: 'Past dates are not permited ' });
     }
@@ -43,9 +42,17 @@ class MatriculaControllers {
   }
   async index(req, res) {
     const matriculas = await Matricula.findAll({
-      include: {
-        model: Student,
-      },
+      attributes: ['id', 'start_date', 'end_date', 'price'],
+      include: [
+        {
+          model: Student,
+          attributes: ['id', 'name', 'email'],
+        },
+        {
+          model: Plano,
+          attributes: ['id', 'title'],
+        },
+      ],
     });
     return res.json(matriculas);
   }
