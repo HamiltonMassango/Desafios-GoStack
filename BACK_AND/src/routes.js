@@ -19,5 +19,7 @@ router.put('/planos/:id', PlanoControllers.update);
 router.delete('/planos/:id', PlanoControllers.delete);
 router.post('/matricula', MatriculaControllers.store);
 router.get('/matricula', MatriculaControllers.index);
+router.put('/matricula/:id', MatriculaControllers.update);
+router.delete('/matricula/:id', MatriculaControllers.delete);
 
 export default router;

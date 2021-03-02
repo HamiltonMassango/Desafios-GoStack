@@ -26,6 +26,7 @@ class MatriculaControllers {
       return res.status(400).json({ error: ' Plan is not exist ' });
     }
     const end_date = addMonths(hourStart, plano.duration);
+
     if (isBefore(end_date, new Date())) {
       return res.status(400).json({ error: 'Past dates are not permited ' });
     }
@@ -57,12 +58,37 @@ class MatriculaControllers {
     return res.json(matriculas);
   }
   async update(req, res) {
-    const matricula = Matricula.findByPk(req.params.id);
+    const matricula = await Matricula.findByPk(req.params.id);
     if (!matricula) {
-      return res.status().json({ error: 'Matricula is not exist ' });
+      return res.status(400).json({ error: 'Matricula is not exist ' });
     }
-    await matricula.update(req.body);
+
+    if (!!req.body.plan_id) {
+      let plano = await Plano.findByPk(req.body.plan_id);
+      if (!plano) {
+        return res.status(400).json({ error: ' Plan is not exist ' });
+      }
+      matricula.plan_id = req.body.plan_id;
+      matricula.end_date = addMonths(matricula.start_date, plano.duration);
+      if (isBefore(matricula.end_date, new Date())) {
+        return res.status(400).json({ error: 'Past dates are not permited ' });
+      }
+      matricula.price = plano.duration * plano.price;
+    }
+    if (!!req.body.start_date) {
+      let { duration } = await Plano.findByPk(matricula.plan_id);
+      matricula.end_date = addMonths(parseISO(req.body.start_date), duration);
+      matricula.start_date = req.body.start_date;
+    }
+    await matricula.save();
     res.json(matricula);
+  }
+  async delete(req, res) {
+    const matricula = await Matricula.findByPk(req.params.id);
+    if (!matricula) {
+      return res.status(400).json({ error: 'Matricula is not exist ' });
+    }
+    await matricula.destroy();
   }
 }
 
