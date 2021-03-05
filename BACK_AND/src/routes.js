@@ -4,6 +4,7 @@ import sessionControllers from './app/controllers/SessionControllers';
 import studentControllers from './app/controllers/StudentsControllers';
 import PlanoControllers from './app/controllers/PlanosControllers';
 import MatriculaControllers from './app/controllers/MatriculasControllers';
+import CheckinControllers from './app/controllers/CheckinsControllers';
 
 import auth from './app/middlewares/auth';
 
@@ -21,5 +22,7 @@ router.post('/matricula', MatriculaControllers.store);
 router.get('/matricula', MatriculaControllers.index);
 router.put('/matricula/:id', MatriculaControllers.update);
 router.delete('/matricula/:id', MatriculaControllers.delete);
+router.post('/checkins', CheckinControllers.store);
+router.get('/checkins', CheckinControllers.index);
 
 export default router;
