@@ -1,12 +1,12 @@
 POST http://localhost:3333/checkins HTTP/1.1
 Content-Type: application/json
-Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0NTk1MjgyLCJleHAiOjE2MTUyMDAwODJ9.xpcmd84vNoxPUEOFNPlod3LnWtHU4cDFVAusXNS0SIo
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE1NzIzMjkyLCJleHAiOjE2MTYzMjgwOTJ9.TZXvGN2I5j25bzQaCDOg18UlPfmxELBFTkvf-jP-sYQ
 
 {
-  "student_id" : 
+  "student_id" : 2
 }
 
 ### 
 GET http://localhost:3333/checkins HTTP/1.1
 Content-Type: application/json
-Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE0NTk1MjgyLCJleHAiOjE2MTUyMDAwODJ9.xpcmd84vNoxPUEOFNPlod3LnWtHU4cDFVAusXNS0SIo
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE1NzIzMjkyLCJleHAiOjE2MTYzMjgwOTJ9.TZXvGN2I5j25bzQaCDOg18UlPfmxELBFTkvf-jP-sYQ
