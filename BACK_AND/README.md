@@ -138,7 +138,7 @@ Exemplo de requisição: `GET https://gympoint.com/students/3/help-orders`
 
 Crie uma rota para a academia responder um pedido de auxílio:
 
-Exemplo de requisição: `POST https://gympoint.com/help-orders/1/answer`
+Exemplo de requisição: `PUT https://gympoint.com/help-orders/1/answer`
 
 Quando um pedido de auxílio for respondido, o aluno deve receber um e-mail da plataforma com a pergunta e resposta da academia;
 
