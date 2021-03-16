@@ -11,3 +11,12 @@ Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 GET http://localhost:3333/students/1/help-orders/ HTTP/1.1
 Content-Type: application/json
 Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE1NzIzMjkyLCJleHAiOjE2MTYzMjgwOTJ9.TZXvGN2I5j25bzQaCDOg18UlPfmxELBFTkvf-jP-sYQ
+
+###
+PUT http://localhost:3333/help-orders/2/answer HTTP/1.1
+Content-Type: application/json
+Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE1NzIzMjkyLCJleHAiOjE2MTYzMjgwOTJ9.TZXvGN2I5j25bzQaCDOg18UlPfmxELBFTkvf-jP-sYQ
+
+{
+  "answer"  : " Comendo pouco ! "
+}

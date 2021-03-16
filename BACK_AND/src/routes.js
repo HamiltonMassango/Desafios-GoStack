@@ -26,5 +26,6 @@ router.post('/checkins', CheckinControllers.store);
 router.get('/students/:id/checkins/', CheckinControllers.index);
 router.post('/students/:id/help-orders/', StudentsQControllers.store);
 router.get('/students/:id/help-orders/', StudentsQControllers.index);
+router.put('/help-orders/:id/answer', StudentsQControllers.update);
 
 export default router;

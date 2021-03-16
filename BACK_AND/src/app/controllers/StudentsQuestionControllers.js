@@ -19,6 +19,15 @@ class StudentsQuestions {
     });
     return res.json(questions);
   }
+  async update(req, res, next) {
+    const { answer } = req.body;
+    const question = await Help_Orders.findByPk(req.params.id);
+    await question.update({
+      answer,
+      answer_at: `${new Date()}`,
+    });
+    res.json(question);
+  }
 }
 
 export default new StudentsQuestions();
