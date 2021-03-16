@@ -6,7 +6,7 @@ class Help_orders extends Model {
       {
         question: DataTypes.STRING,
         answer: DataTypes.STRING,
-        answer_at: DataTypes.STRING,
+        answer_at: DataTypes.DATE,
       },
       { sequelize }
     );

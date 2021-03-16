@@ -24,7 +24,7 @@ class StudentsQuestions {
     const question = await Help_Orders.findByPk(req.params.id);
     await question.update({
       answer,
-      answer_at: `${new Date()}`,
+      answer_at: new Date(),
     });
     res.json(question);
   }
