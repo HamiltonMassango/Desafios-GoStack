@@ -25,5 +25,6 @@ router.delete('/matricula/:id', MatriculaControllers.delete);
 router.post('/checkins', CheckinControllers.store);
 router.get('/students/:id/checkins/', CheckinControllers.index);
 router.post('/students/:id/help-orders/', StudentsQControllers.store);
+router.get('/students/:id/help-orders/', StudentsQControllers.index);
 
 export default router;
