@@ -1,5 +1,7 @@
-import Students from '../models/Students';
 import * as yup from 'yup';
+
+import Students from '../models/Students';
+
 class studentsController {
   async index(req, res) {
     const students = await Students.findAll({
