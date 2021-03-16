@@ -3,9 +3,9 @@ Content-Type: application/json
 Authorization: beater eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE1NzIzMjkyLCJleHAiOjE2MTYzMjgwOTJ9.TZXvGN2I5j25bzQaCDOg18UlPfmxELBFTkvf-jP-sYQ
 
 {
-  "start_date" : "2021-03-13T20:00:00+01:00",
-  "student_id" : 2,
-  "plan_id" : 1
+  "start_date" : "2021-03-16T22:00:00+01:00",
+  "student_id" : 1,
+  "plan_id" : 2
 }
 
 ###
