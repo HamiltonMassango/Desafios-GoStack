@@ -3,7 +3,7 @@ import { resolve } from 'path';
 import exphbs from 'express-handlebars';
 import nodemailerhbs from 'nodemailer-express-handlebars';
 
-import configMail from '../config/mail';
+import configMail from '../config/email';
 
 class Mail {
   constructor() {
