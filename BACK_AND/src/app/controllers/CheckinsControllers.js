@@ -1,9 +1,17 @@
-import Checkins from '../models/Checkins';
 import { startOfWeek, endOfWeek } from 'date-fns';
 import { Op } from 'sequelize';
+import * as yup from 'yup';
 
+import Checkins from '../models/Checkins';
 class CheckinsControllers {
   async store(req, res) {
+    const schema = yup.object().shape({
+      student_id: yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails ' });
+    }
     // Verificar o numero de checks na semana
     const { student_id } = req.body;
     const agoDate = new Date();
