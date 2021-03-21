@@ -1,6 +1,6 @@
 import { Model } from 'sequelize';
 
-class Matriculas extends Model {
+class Checkins extends Model {
   static init(sequelize) {
     super.init({}, { sequelize });
     return this;
@@ -10,4 +10,4 @@ class Matriculas extends Model {
   }
 }
 
-export default Matriculas;
+export default Checkins;
