@@ -23,6 +23,6 @@ router.get('/matricula', MatriculaControllers.index);
 router.put('/matricula/:id', MatriculaControllers.update);
 router.delete('/matricula/:id', MatriculaControllers.delete);
 router.post('/checkins', CheckinControllers.store);
-router.get('/checkins', CheckinControllers.index);
+router.get('/students/:id/checkins/', CheckinControllers.index);
 
 export default router;
