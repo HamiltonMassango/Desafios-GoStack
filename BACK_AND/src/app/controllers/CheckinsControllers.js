@@ -4,6 +4,15 @@ import * as yup from 'yup';
 
 import Checkins from '../models/Checkins';
 class CheckinsControllers {
+  async index(req, res) {
+    const checkins = await Checkins.findAll({
+      where: {
+        student_id: req.params.id,
+      },
+    });
+    return res.json(checkins);
+  }
+
   async store(req, res) {
     const schema = yup.object().shape({
       student_id: yup.number().required(),
@@ -29,14 +38,6 @@ class CheckinsControllers {
         .json({ error: " Student don't can to make five checkins of Week " });
     }
     const checkins = await Checkins.create(req.body);
-    return res.json(checkins);
-  }
-  async index(req, res) {
-    const checkins = await Checkins.findAll({
-      where: {
-        student_id: req.params.id,
-      },
-    });
     return res.json(checkins);
   }
 }
