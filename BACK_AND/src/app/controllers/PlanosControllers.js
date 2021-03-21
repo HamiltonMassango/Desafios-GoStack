@@ -1,14 +1,7 @@
-import Planos from '../models/Planos';
 import * as yup from 'yup';
+import Planos from '../models/Planos';
 
 class PlanosControllers {
-  async index(req, res) {
-    const planos = await Planos.findAll({
-      attributes: ['title', 'duration', 'price'],
-    });
-
-    return res.json(planos);
-  }
   async store(req, res) {
     const schema = yup.object().shape({
       title: yup.string().required(),
@@ -22,6 +15,13 @@ class PlanosControllers {
 
     const plano = await Planos.create(req.body);
     return res.json(plano);
+  }
+  async index(req, res) {
+    const planos = await Planos.findAll({
+      attributes: ['title', 'duration', 'price'],
+    });
+
+    return res.json(planos);
   }
   async update(req, res) {
     const plano = await Planos.findByPk(req.params.id);
