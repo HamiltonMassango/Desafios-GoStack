@@ -1,10 +1,9 @@
+import { startOfHour, parseISO, isBefore, addMonths } from 'date-fns';
 import * as yup from 'yup';
 
 import Matricula from '../models/Matriculas';
 import Student from '../models/Students';
 import Plano from '../models/Planos';
-
-import { startOfHour, parseISO, isBefore, addMonths } from 'date-fns';
 
 class MatriculaControllers {
   async store(req, res) {
